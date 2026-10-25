@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+  <meta content="mobile_blank" name="shell-type"/>
+  <title>AjaraDigital - Local Web Design | Ajara 416505</title>
+  <meta name="description" content="Affordable, fixed-scope, mobile-first websites and Google Business Profile assistance for local shops and businesses in Ajara, Maharashtra."/>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  
+  <style>
+    @layer base {
+      html, body {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        overscroll-behavior: none;
+      }
+      .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      .pt-safe {
+        padding-top: env(safe-area-inset-top, 0px);
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    .scrollbar-none::-webkit-scrollbar {
+      display: none;
+    }
+    .scrollbar-none {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    body {
+      min-height: max(884px, 100dvh);
+    }
+    .screen-content {
+      display: none;
+      animation: fadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .screen-content.active {
+      display: flex;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "tertiary-container": "#9eebff",
+            background: "#001711",
+            "on-secondary-container": "#005443",
+            "inverse-primary": "#006c4a",
+            "surface-bright": "#004234",
+            "on-tertiary-fixed-variant": "#004e5b",
+            "primary-fixed-dim": "#00e29f",
+            "on-surface-variant": "#b9cbbf",
+            "on-secondary-fixed-variant": "#005141",
+            "secondary-fixed": "#59fcd3",
+            "on-secondary": "#00382c",
+            "on-background": "#b5eedb",
+            "on-primary-fixed": "#002114",
+            "outline-variant": "#3a4a41",
+            "surface-tint": "#00e29f",
+            "surface-container-highest": "#003d30",
+            "surface-dim": "#001711",
+            "inverse-on-surface": "#00382c",
+            tertiary: "#f7fdff",
+            surface: "#001711",
+            "surface-container-low": "#002019",
+            "on-error-container": "#ffdad6",
+            "tertiary-fixed-dim": "#00d9fb",
+            "primary-container": "#00feb4",
+            "surface-container": "#00251c",
+            error: "#ffb4ab",
+            "surface-container-lowest": "#00110c",
+            "on-secondary-fixed": "#002018",
+            "on-tertiary-container": "#006c7e",
+            "on-surface": "#b5eedb",
+            "on-primary-container": "#00714e",
+            "secondary-fixed-dim": "#2fdfb8",
+            "inverse-surface": "#b5eedb",
+            "surface-container-high": "#003126",
+            "tertiary-fixed": "#a9edff",
+            "on-primary": "#003825",
+            "on-primary-fixed-variant": "#005137",
+            primary: "#f4fff6",
+            secondary: "#46edc5",
+            "on-tertiary": "#003640",
+            "error-container": "#93000a",
+            "primary-fixed": "#45ffba",
+            "on-error": "#690005",
+            outline: "#83958a",
+            "on-tertiary-fixed": "#001f26",
+            "secondary-container": "#05d0aa",
+            "surface-variant": "#003d30"
+          },
+          fontFamily: {
+            "display-mobile": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "label-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "title-md": ["Plus Jakarta Sans", "sans-serif"],
+            "body-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-md": ["Plus Jakarta Sans", "sans-serif"],
+            "label-marathi": ["Plus Jakarta Sans", "sans-serif"],
+            "body-md": ["Plus Jakarta Sans", "sans-serif"],
+            "body-lg": ["Plus Jakarta Sans", "sans-serif"],
+            display: ["Plus Jakarta Sans", "sans-serif"],
+            "label-md": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-lg-mobile": ["Plus Jakarta Sans", "sans-serif"],
+            headline: ["Plus Jakarta Sans", "sans-serif"],
+            body: ["Plus Jakarta Sans", "sans-serif"],
+            label: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen selection:bg-primary-container selection:text-on-primary">
+
+  <!-- PERSISTENT TOP HEADER -->
+  <header class="w-full px-4 py-3 bg-surface-container-lowest shadow-md sticky top-0 z-40 border-b border-surface-container">
+    <div class="max-w-5xl mx-auto flex items-center justify-between">
+      <button type="button" onclick="switchScreen('home')" class="flex items-center gap-2.5 text-left rounded-lg p-1" aria-label="AjaraDigital Home">
+        <div class="w-9 h-9 rounded-lg bg-primary flex items-center justify-center text-on-primary font-headline-md font-bold relative shadow-sm shrink-0">
+          <span>A</span>
+          <span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary-fixed"></span>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-baseline">
+            <span class="font-headline-sm font-extrabold tracking-tight text-on-surface">Ajara</span>
+            <span class="font-headline-sm font-extrabold tracking-tight text-primary">Digital</span>
+          </div>
+          <span class="font-label-md text-secondary tracking-wider uppercase text-[0.65rem] -mt-1 font-semibold">Websites • Ajara 416505</span>
+        </div>
+      </button>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-1 bg-surface-container-low p-1.5 rounded-full border border-surface-container" aria-label="Desktop primary navigation">
+        <button type="button" onclick="switchScreen('home')" class="nav-btn-home px-3.5 py-1.5 rounded-full font-label-md font-semibold transition-all bg-primary text-on-primary">Home</button>
+        <button type="button" onclick="switchScreen('demos')" class="nav-btn-demos px-3.5 py-1.5 rounded-full font-label-md font-semibold transition-all text-on-surface-variant hover:text-on-surface">Demos</button>
+        <button type="button" onclick="switchScreen('pricing')" class="nav-btn-pricing px-3.5 py-1.5 rounded-full font-label-md font-semibold transition-all text-on-surface-variant hover:text-on-surface">Pricing</button>
+        <button type="button" onclick="switchScreen('enquiry')" class="nav-btn-enquiry px-3.5 py-1.5 rounded-full font-label-md font-semibold transition-all text-on-surface-variant hover:text-on-surface">Enquiry</button>
+        <button type="button" onclick="switchScreen('more')" class="nav-btn-more px-3.5 py-1.5 rounded-full font-label-md font-semibold transition-all text-on-surface-variant hover:text-on-surface">More &amp; FAQ</button>
+      </nav>
+
+      <a class="flex items-center gap-1.5 py-1.5 px-3 rounded-full bg-primary text-on-primary font-label-md transition-all active:scale-95 shadow-sm hover:bg-primary-fixed shrink-0" href="https://wa.me/919322493776?text=नमस्ते%20AjaraDigital%2C%20मला%20माझ्या%20व्यवसायासाठी%20वेबसाईटची%20माहिती%20हवी%20आहे." target="_blank" rel="noopener noreferrer">
+        <span class="material-symbols-outlined text-[16px]">chat</span>
+        <span>संपर्क करा</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- MAIN APP CONTAINER -->
+  <main class="flex-1 w-full max-w-5xl mx-auto pb-24 md:pb-12">
+
+    <!-- SCREEN 1: HOME -->
+    <div id="screen-home" class="screen-content active flex-col">
+      <section class="w-full px-4 pt-6 pb-8 bg-gradient-to-b from-surface-container-lowest via-surface to-surface flex flex-col gap-5">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-container/10 text-primary font-label-md self-start border border-primary-container/20">
+          <span class="material-symbols-outlined text-secondary text-[18px]">location_on</span>
+          <span class="font-medium text-[0.8rem] leading-tight">Ajara (PIN 416505) • आपला व्यवसाय आता डिजिटल</span>
+        </div>
+        <div class="flex flex-col gap-2">
+          <h1 class="font-headline-lg-mobile text-on-surface font-extrabold tracking-tight leading-tight md:text-3xl">
+            Your Business Deserves to Be Online.
+          </h1>
+          <p class="font-label-marathi text-primary font-semibold text-[1.05rem] leading-snug">
+            आजऱ्यातील दुकाने, हॉटेल्स आणि स्थानिक व्यवसायांसाठी आधुनिक वेबसाईट!
+          </p>
+          <p class="font-body-md text-on-surface-variant leading-relaxed text-[0.95rem] pt-1">
+            Affordable, transparent, fixed-scope websites crafted by a local independent designer for Ajara's shops, clinics, hotels, and retail. Showcase products, get setup assistance for your Google Business Profile, and receive direct customer WhatsApp messages.
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3 pt-1">
+          <button type="button" onclick="switchScreen('enquiry')" class="px-6 h-12 rounded-lg bg-primary text-on-primary font-label-lg font-bold flex items-center justify-center gap-2 shadow-md hover:bg-primary-fixed">
+            <span>Get Your Business Online</span>
+            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+          </button>
+          <button type="button" onclick="switchScreen('demos')" class="px-5 h-12 rounded-lg bg-surface-container-high text-on-surface font-label-lg font-semibold flex items-center justify-center gap-2 border border-outline-variant/40 hover:bg-surface-container-highest">
+            <span class="material-symbols-outlined text-[18px] text-secondary">visibility</span>
+            <span>View Sample Demos (नमुने पहा)</span>
+          </button>
+          <button type="button" onclick="switchScreen('pricing')" class="px-5 h-12 rounded-lg bg-surface-container-low text-on-surface font-label-lg font-semibold flex items-center justify-center gap-2 border border-surface-container hover:bg-surface-container">
+            <span class="material-symbols-outlined text-[18px] text-secondary">sell</span>
+            <span>View Pricing Plans (दर पत्रक)</span>
+          </button>
+        </div>
+        <div class="w-full p-4 rounded-xl bg-surface-container-low flex flex-col gap-2 shadow-sm mt-1 border border-surface-container">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-on-surface-variant font-label-md">
+            <div class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">schedule</span><span>7–14 Days (One-Page)</span></div>
+            <div class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">date_range</span><span>14–21 Days (Multi-Page)</span></div>
+            <div class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">assignment_turned_in</span><span>Fixed-Scope One-Time Build</span></div>
+            <div class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">smartphone</span><span>100% Mobile Ready</span></div>
+          </div>
+          <p class="text-[0.72rem] text-secondary leading-normal border-t border-surface-container pt-2 mt-1">
+            * Project timelines begin after all required content (photos, text, pricing) &amp; agreed initial milestone advance payment are received.
+          </p>
+        </div>
+      </section>
+
+      <!-- Why Ajara Businesses Need a Website -->
+      <section class="w-full px-4 py-8 bg-surface-container-lowest flex flex-col gap-5 border-t border-surface-container-low">
+        <div class="flex flex-col gap-1">
+          <span class="font-label-md text-tertiary-container uppercase tracking-wider font-bold">स्थानिक बाजारपेठ व गरज</span>
+          <h2 class="font-headline-sm text-on-surface font-bold">Why Ajara Businesses Need a Website Now</h2>
+          <p class="font-body-sm text-on-surface-variant">More travelers, tourists heading to Amboli, and local shoppers search their phones first.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+          <div class="p-4 rounded-xl bg-surface-container-low flex flex-col gap-2 shadow-sm border border-surface-container">
+            <div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-secondary"><span class="material-symbols-outlined text-[22px]">travel_explore</span></div>
+            <h3 class="font-title-md text-on-surface font-bold text-sm">Google Business Profile Setup Assistance &amp; Local SEO Basics</h3>
+            <p class="font-body-sm text-on-surface-variant text-xs leading-relaxed">Assistance with setting up or claiming your Google Business Profile pin and standard local SEO markup. Helps customers discover opening hours and phone numbers. (Rankings, verification, and leads cannot be guaranteed).</p>
+          </div>
+          <div class="p-4 rounded-xl bg-surface-container-low flex flex-col gap-2 shadow-sm border border-surface-container">
+            <div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-secondary"><span class="material-symbols-outlined text-[22px]">chat</span></div>
+            <h3 class="font-title-md text-on-surface font-bold text-sm">Direct WhatsApp Enquiries (0% Commission)</h3>
+            <p class="font-body-sm text-on-surface-variant text-xs leading-relaxed">Skip third-party aggregator commissions. Customers browse your products or services and tap one button to send you a pre-filled WhatsApp message directly.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-surface-container-low flex flex-col gap-2 shadow-sm border border-surface-container">
+            <div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-secondary"><span class="material-symbols-outlined text-[22px]">contact_page</span></div>
+            <h3 class="font-title-md text-on-surface font-bold text-sm">Professional Digital Visiting Card</h3>
+            <p class="font-body-sm text-on-surface-variant text-xs leading-relaxed">Share your branded link effortlessly via WhatsApp Status, print QR codes on your billing receipts, and build instant trust with every customer.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- What Every Website Includes -->
+      <section class="w-full px-4 py-8 bg-surface flex flex-col gap-5 border-t border-surface-container">
+        <div class="flex flex-col gap-1">
+          <span class="font-label-md text-secondary font-bold uppercase tracking-wider">सर्वोत्तम सुविधा</span>
+          <h2 class="font-headline-sm text-on-surface font-bold">What Every Website Includes</h2>
+          <p class="font-body-sm text-on-surface-variant">Clean craftsmanship with zero proprietary agency lock-in.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+          <div class="p-3.5 rounded-xl bg-surface-container-low flex items-start gap-3 border border-surface-container">
+            <span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">language</span>
+            <div><h3 class="font-title-md text-on-surface font-bold text-sm">Domain &amp; Hosting Setup Assistance</h3><p class="text-xs text-on-surface-variant mt-0.5">Configured in your name. Provider fees are separate; renewals at host actual rates.</p></div>
+          </div>
+          <div class="p-3.5 rounded-xl bg-surface-container-low flex items-start gap-3 border border-surface-container">
+            <span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">add_location_alt</span>
+            <div><h3 class="font-title-md text-on-surface font-bold text-sm">Google Business Profile Assistance</h3><p class="text-xs text-on-surface-variant mt-0.5">Pin setup assistance and local SEO markup so customers can find your address.</p></div>
+          </div>
+          <div class="p-3.5 rounded-xl bg-surface-container-low flex items-start gap-3 border border-surface-container">
+            <span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">chat_bubble</span>
+            <div><h3 class="font-title-md text-on-surface font-bold text-sm">1-Click WhatsApp Direct Chat</h3><p class="text-xs text-on-surface-variant mt-0.5">Click-to-WhatsApp button with pre-filled Marathi or English order/inquiry text.</p></div>
+          </div>
+          <div class="p-3.5 rounded-xl bg-surface-container-low flex items-start gap-3 border border-surface-container">
+            <span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">photo_library</span>
+            <div><h3 class="font-title-md text-on-surface font-bold text-sm">Clean Photo Gallery</h3><p class="text-xs text-on-surface-variant mt-0.5">Showcase your showroom, clinic, rooms, or products optimized for phones.</p></div>
+          </div>
+          <div class="p-3.5 rounded-xl bg-surface-container-low flex items-start gap-3 border border-surface-container">
+            <span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">format_list_bulleted</span>
+            <div><h3 class="font-title-md text-on-surface font-bold text-sm">Service &amp; Rate List (किंमत सूची)</h3><p class="text-xs text-on-surface-variant mt-0.5">Clear digital pricing or menu display to save time on repetitive questions.</p></div>
+          </div>
+          <div class="p-3.5 rounded-xl bg-surface-container-low flex items-start gap-3 border border-surface-container">
+            <span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">support_agent</span>
+            <div><h3 class="font-title-md text-on-surface font-bold text-sm">30-Day Post-Launch Support</h3><p class="text-xs text-on-surface-variant mt-0.5">Minor bug fixes and initial guidance included for 30 days post-launch.</p></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- SCREEN 2: DEMOS -->
+    <div id="screen-demos" class="screen-content flex-col px-4 py-6 gap-6">
+      <div class="flex flex-col gap-1.5">
+        <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-container/20 text-secondary font-label-md self-start border border-secondary-container/30">
+          <span class="material-symbols-outlined text-[15px]">devices</span>
+          <span>काल्पनिक संकल्पना डेमो (Sample Concepts)</span>
+        </div>
+        <h2 class="font-headline-sm text-on-surface font-bold text-xl md:text-2xl">Sample Design Concepts for Ajara Businesses</h2>
+        <p class="font-body-sm text-on-surface-variant text-xs md:text-sm">Realistic demo prototypes created to illustrate design styles and mobile experience. Not claimed client work. Your site will feature your exact photos, logo, and pricing.</p>
+      </div>
+
+      <!-- Filters -->
+      <div class="flex flex-wrap gap-2" role="tablist">
+        <button type="button" onclick="filterDemoCards('all', this)" class="demo-pill px-3.5 py-1.5 rounded-full font-label-md bg-primary text-on-primary font-bold shadow-sm">All Industries (4)</button>
+        <button type="button" onclick="filterDemoCards('food', this)" class="demo-pill px-3.5 py-1.5 rounded-full font-label-md bg-surface-container text-on-surface">Food &amp; Hotels</button>
+        <button type="button" onclick="filterDemoCards('retail', this)" class="demo-pill px-3.5 py-1.5 rounded-full font-label-md bg-surface-container text-on-surface">Clothing &amp; Saree</button>
+        <button type="button" onclick="filterDemoCards('stay', this)" class="demo-pill px-3.5 py-1.5 rounded-full font-label-md bg-surface-container text-on-surface">Homestays</button>
+        <button type="button" onclick="filterDemoCards('wellness', this)" class="demo-pill px-3.5 py-1.5 rounded-full font-label-md bg-surface-container text-on-surface">Salon &amp; Clinic</button>
+      </div>
+
+      <!-- Demo Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5" id="demos-grid">
+        <!-- Card 1 -->
+        <div class="demo-item food rounded-xl bg-surface-container-lowest overflow-hidden shadow-sm flex flex-col border border-surface-container">
+          <div class="relative w-full h-48 bg-surface-container">
+            <img class="w-full h-full object-cover" alt="Hotel Ajara Darbar special thali demo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFWxGvA_hTGMgzzeEDxD885Wnrucpf66DcWCY8R2pB82-BRdLXIFbZ2uvQ0HQwVd3kKxQY2lMqNG32a3PFH2GiQAbGuGolTfnq9B4EIyqEICBzLOr-LSHufTTyBnsv2f0cAm7_H4xFso-6LN5PBJ2gLiKKQ-VWV3TKxYZWsl43DzoyRE0mRV2MWrcTImL4SNUmb2WMepCZH2kxsrq40jWzcbg4di2b5UuDYaImlO0kySVi1eauExM" loading="lazy"/>
+            <div class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-surface/80 text-on-surface font-label-md backdrop-blur-sm border border-outline-variant/40">खाद्यपदार्थ व हॉटेल्स</div>
+            <div class="absolute bottom-3 right-3 px-2 py-0.5 rounded-md bg-primary text-on-primary font-label-md font-semibold text-xs shadow-sm">काल्पनिक संकल्पना डेमो</div>
+          </div>
+          <div class="p-4 flex flex-col gap-3 flex-1 justify-between">
+            <div>
+              <div class="flex items-start justify-between gap-2">
+                <div><h3 class="font-title-md text-on-surface font-bold">Hotel Ajara Darbar &amp; Khanawal</h3><p class="font-body-sm text-secondary text-xs">Amboli Road • Veg &amp; Non-Veg Special Thali</p></div>
+                <span class="material-symbols-outlined text-secondary text-[24px]">restaurant_menu</span>
+              </div>
+              <p class="text-xs text-on-surface-variant mt-2">Designed for fast mobile browsing with a digital QR menu, daily thali rates, and direct WhatsApp parcel orders.</p>
+            </div>
+            <div class="flex gap-2 pt-2 border-t border-surface-container-low">
+              <button type="button" onclick="attachDemoToEnquiry('Hotel Ajara Darbar & Khanawal', 'hotel')" class="flex-1 py-2.5 px-3 rounded-lg bg-primary text-on-primary font-label-md font-bold text-center hover:bg-primary-fixed">Request Similar Website</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="demo-item retail rounded-xl bg-surface-container-lowest overflow-hidden shadow-sm flex flex-col border border-surface-container">
+          <div class="relative w-full h-48 bg-surface-container">
+            <img class="w-full h-full object-cover" alt="Mauli Sarees clothing boutique demo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWdZcHHL86Q4THN5mo31mHf9hYhwxpKipG_wc1mC2qK9AGb-M1VglKlpm1HI6ctRB_sbNQD_ayOsejgxAnb5C2WkhDzxVbl8fB_dUWiwCX-D0suge7KH8MojmFMBZb6VvHbfZeHMMry7w1qyT2Fu1WTAUJA5q-6K1SQlT-4HeOxsatfahlKQK9VVkpeQDFcZ6-tznsPzzLomO4IYKQSRnYXUu5lAF-tvHOw7rHSrOEjEy6px30h9c" loading="lazy"/>
+            <div class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-surface/80 text-on-surface font-label-md backdrop-blur-sm border border-outline-variant/40">कापड व साडी दालन</div>
+            <div class="absolute bottom-3 right-3 px-2 py-0.5 rounded-md bg-primary text-on-primary font-label-md font-semibold text-xs shadow-sm">काल्पनिक संकल्पना डेमो</div>
+          </div>
+          <div class="p-4 flex flex-col gap-3 flex-1 justify-between">
+            <div>
+              <div class="flex items-start justify-between gap-2">
+                <div><h3 class="font-title-md text-on-surface font-bold">Mauli Sarees &amp; Menswear</h3><p class="font-body-sm text-secondary text-xs">Main Road Bazaar, Ajara</p></div>
+                <span class="material-symbols-outlined text-secondary text-[24px]">styler</span>
+              </div>
+              <p class="text-xs text-on-surface-variant mt-2">Showcases seasonal saree arrivals and menswear with direct click-to-WhatsApp availability inquiries.</p>
+            </div>
+            <div class="flex gap-2 pt-2 border-t border-surface-container-low">
+              <button type="button" onclick="attachDemoToEnquiry('Mauli Sarees & Menswear', 'clothing')" class="flex-1 py-2.5 px-3 rounded-lg bg-primary text-on-primary font-label-md font-bold text-center hover:bg-primary-fixed">Request Similar Website</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="demo-item stay rounded-xl bg-surface-container-lowest overflow-hidden shadow-sm flex flex-col border border-surface-container">
+          <div class="relative w-full h-48 bg-surface-container">
+            <img class="w-full h-full object-cover" alt="Sahyadri Valley Homestay cottages demo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAB4FIHHcbHYTC6xhb-A6t4M0a-81KlbOJ1BJIkOmdbxkLEhD6D2pbG7DOd3nZ5QpSN3L4r415arvUgDZCh39ySquLj_9TH9hzjNVNfYsLuimvgF27Fl8_DTRYVzTxXwToGEjEkF6n0cyVI_OvZDWDxvHg1ukUQi9U79-THTGmKhmxfzq1UO3OPkhP4w4o_JR1XHti3LlQxx3R9QPg90E-5pnZuKQ-XDXj6NbU3IZZfYETt6v5fZ7Q" loading="lazy"/>
+            <div class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-surface/80 text-on-surface font-label-md backdrop-blur-sm border border-outline-variant/40">पर्यटन व ॲग्रो होमस्टे</div>
+            <div class="absolute bottom-3 right-3 px-2 py-0.5 rounded-md bg-primary text-on-primary font-label-md font-semibold text-xs shadow-sm">काल्पनिक संकल्पना डेमो</div>
+          </div>
+          <div class="p-4 flex flex-col gap-3 flex-1 justify-between">
+            <div>
+              <div class="flex items-start justify-between gap-2">
+                <div><h3 class="font-title-md text-on-surface font-bold">Sahyadri Valley Homestay &amp; Rooms</h3><p class="font-body-sm text-secondary text-xs">Ajara-Amboli Belt • Family &amp; Group Stays</p></div>
+                <span class="material-symbols-outlined text-secondary text-[24px]">cottage</span>
+              </div>
+              <p class="text-xs text-on-surface-variant mt-2">Features room amenities, seasonal tariffs, location map, and direct WhatsApp inquiry for Amboli tourists.</p>
+            </div>
+            <div class="flex gap-2 pt-2 border-t border-surface-container-low">
+              <button type="button" onclick="attachDemoToEnquiry('Sahyadri Valley Homestay & Rooms', 'homestay')" class="flex-1 py-2.5 px-3 rounded-lg bg-primary text-on-primary font-label-md font-bold text-center hover:bg-primary-fixed">Request Similar Website</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="demo-item wellness rounded-xl bg-surface-container-lowest overflow-hidden shadow-sm flex flex-col border border-surface-container">
+          <div class="relative w-full h-48 bg-surface-container">
+            <img class="w-full h-full object-cover" alt="Glamour Hair & Beauty studio demo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdo6T1xDG3FhdFPkk7j6ArlpWmQEHOxafjMLclI4dOrfjC6OdUjZ-k28E5GixqLMOmc1QzL10bZ3xxMcILNKArmKByA81-7sdHmzstDgHXBgcJPUBe3XfLYAjFOJGmtKBiLS_4fNz743NOXDX1AZ9P8OBiNHyQgKg7eeYdhoyq17Lnt8IthddAvIH1-b0HS-aDmsgUv94Wv_c6eNDuugx5quq78WnuVvtt3m4eWRiyUwvYMiC2dmQ" loading="lazy"/>
+            <div class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-surface/80 text-on-surface font-label-md backdrop-blur-sm border border-outline-variant/40">सौंदर्य व सलून</div>
+            <div class="absolute bottom-3 right-3 px-2 py-0.5 rounded-md bg-primary text-on-primary font-label-md font-semibold text-xs shadow-sm">काल्पनिक संकल्पना डेमो</div>
+          </div>
+          <div class="p-4 flex flex-col gap-3 flex-1 justify-between">
+            <div>
+              <div class="flex items-start justify-between gap-2">
+                <div><h3 class="font-title-md text-on-surface font-bold">Glamour Hair &amp; Beauty Studio</h3><p class="font-body-sm text-secondary text-xs">Near Bus Stand, Ajara</p></div>
+                <span class="material-symbols-outlined text-secondary text-[24px]">spa</span>
+              </div>
+              <p class="text-xs text-on-surface-variant mt-2">Presents service price lists, bridal packages, and allows local clients to request appointments on WhatsApp.</p>
+            </div>
+            <div class="flex gap-2 pt-2 border-t border-surface-container-low">
+              <button type="button" onclick="attachDemoToEnquiry('Glamour Hair & Beauty Studio', 'salon')" class="flex-1 py-2.5 px-3 rounded-lg bg-primary text-on-primary font-label-md font-bold text-center hover:bg-primary-fixed">Request Similar Website</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN 3: PRICING -->
+    <div id="screen-pricing" class="screen-content flex-col px-4 py-6 gap-6">
+      <div class="flex flex-col gap-1.5">
+        <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-container/20 text-secondary font-label-md self-start border border-secondary-container/30">
+          <span class="material-symbols-outlined text-[15px]">sell</span>
+          <span>पारदर्शक दर (Estimated Pricing • Agreed Scope)</span>
+        </div>
+        <h2 class="font-headline-sm text-on-surface font-bold text-xl md:text-2xl">Transparent Packages &amp; Estimated Rates</h2>
+        <p class="font-body-sm text-on-surface-variant text-xs md:text-sm">Fixed-scope one-time build. Zero hidden agency retainers. Final price depends on confirmed scope.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <!-- Starter -->
+        <div class="p-5 rounded-2xl bg-surface-container-low flex flex-col justify-between gap-4 shadow-sm border border-surface-container">
+          <div class="flex flex-col gap-3">
+            <div>
+              <h3 class="font-title-md text-on-surface font-bold text-lg">Starter Web Presence</h3>
+              <p class="text-xs text-secondary">Ideal for Clinics &amp; Single Shops</p>
+            </div>
+            <div class="flex items-baseline gap-1.5 py-1 border-b border-surface-container">
+              <span class="font-headline-md font-extrabold text-primary text-2xl">₹3,999</span>
+              <span class="text-xs text-secondary">Estimated Price (अंदाजे दर)</span>
+            </div>
+            <ul class="flex flex-col gap-2 text-xs text-on-surface-variant">
+              <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary text-[16px] shrink-0 mt-0.5">check_circle</span><span>1 Sleek Mobile-First Page</span></li>
+              <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary text-[16px] shrink-0 mt-0.5">check_circle</span><span>1 Revision Round included</span></li>
+              <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary text-[16px] shrink-0 mt-0.5">check_circle</span><span>7–14 Working Days delivery timeline</span></li>
+              <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary text-[16px] shrink-0 mt-0.5">check_circle</span><span>WhatsApp Chat Integration</span></li>
+              <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary text-[16px] shrink-0 mt-0.5">check_circle</span><span>Google Business Profile Setup Assistance &amp; Local SEO Basics</span></li>
+              <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary text-[16px] shrink-0 mt-0.5">check_circle</span><span>Domain &amp; hosting setup assistance (fees separate; renewals at host rates)</span></li>
+              <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary text-[16px] shrink-0 mt-0.5">check_circle</span><span>30-Day Post-Launch Support (minor bug fixes and guidance)</span></li>
+            </ul>
+          </div>
+          <button type="button" onclick="attachPackageToEnquiry('Starter Web Presence (₹3,999)')" class="w-full py-3 rounded-lg bg-surface-container text-on-surface font-label-md font-bold hover:bg-surface-container-high border border-outline-variant/40">Choose Starter Plan</button>
+        </div>
+
+        <!-- Professional -->
+        <div class="p-5 rounded-2xl bg-surface-container-highest/60 flex flex-col justify-between gap-4 shadow-md relative border border-primary-container/30">
+          <div class="absolute top-0 right-0 bg-primary text-on-primary font-label-md px-3 py-1 rounded-bl-lg font-bold text-xs uppercase">Recommended • शिफारस केलेले</div>
+          <div class="flex flex-col gap-3 pt-2">
+            <div>
+              <h3 class="font-title-md text-on-surface font-bold text-lg">Professional Multi-Page</h3>
+              <p class="text-xs text-secondary">Hotels, Salons, Bakeries &amp; Retail</p>
+            </div>
+            <div class="flex items-baseline gap-1.5 py-1 border-b border-surface-container">
+              <span class="font-headline-md font-extrabold text-primary text-2xl">₹7,499</span>
+              <span class="text-xs text-secondary">Estimated Price (अंदाजे दर)</span>
+            </div>
+            <ul class="flex flex-col gap-2 text-xs text-on-surface-variant">
+              <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary text-[16px] shrink-0 mt-0.5">check_circle</span><span>Up to 5 Custom Mobile Pages</span></li>
+              <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary text-[16px] shrink-0 mt-0.5">check_circle</span><span>2 Revision Rounds included</span></li>
+              <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary text-[16px] shrink-0 mt-0.5">check_circle</span><span>14–21 Working Days delivery timeline</span></li>
+              <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary text-[16px] shrink-0 mt-0.5">check_circle</span><span>Digital Menu / Catalog (up to 25 items)</span></li>
+              <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary text-[16px] shrink-0 mt-0.5">check_circle</span><span>Google Business Profile Setup Assistance &amp; Local SEO Basics</span></li>
+              <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary text-[16px] shrink-0 mt-0.5">check_circle</span><span>Domain &amp; hosting setup assistance (fees separate; renewals at host rates)</span></li>
+              <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary text-[16px] shrink-0 mt-0.5">check_circle</span><span>30-Day Post-Launch Support (minor bug fixes and guidance)</span></li>
+            </ul>
+          </div>
+          <button type="button" onclick="attachPackageToEnquiry('Professional Multi-Page (₹7,499)')" class="w-full py-3 rounded-lg bg-primary text-on-primary font-label-md font-bold shadow-sm hover:bg-primary-fixed">Choose Professional Plan</button>
+        </div>
+
+        <!-- Business Plus -->
+        <div class="p-5 rounded-2xl bg-surface-container-low flex flex-col justify-between gap-4 shadow-sm border border-surface-container">
+          <div class="flex flex-col gap-3">
+            <div>
+              <h3 class="font-title-md text-on-surface font-bold text-lg">Business Plus</h3>
+              <p class="text-xs text-secondary">Agro Homestays &amp; Academies</p>
+            </div>
+            <div class="flex items-baseline gap-1.5 py-1 border-b border-surface-container">
+              <span class="font-headline-md font-extrabold text-primary text-2xl">₹12,999</span>
+              <span class="text-xs text-secondary">Estimated Price (अंदाजे दर)</span>
+            </div>
+            <ul class="flex flex-col gap-2 text-xs text-on-surface-variant">
+              <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary text-[16px] shrink-0 mt-0.5">check_circle</span><span>Custom Scope agreed in advance</span></li>
+              <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary text-[16px] shrink-0 mt-0.5">check_circle</span><span>3 Revision Rounds included</span></li>
+              <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary text-[16px] shrink-0 mt-0.5">check_circle</span><span>14–21 Working Days delivery timeline</span></li>
+              <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary text-[16px] shrink-0 mt-0.5">check_circle</span><span>Bilingual Marathi + English Switcher</span></li>
+              <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary text-[16px] shrink-0 mt-0.5">check_circle</span><span>Custom WhatsApp Inquiry / Booking Form (Direct to WhatsApp)</span></li>
+              <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary text-[16px] shrink-0 mt-0.5">check_circle</span><span>Domain &amp; hosting setup assistance (fees separate; renewals at host rates)</span></li>
+              <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary text-[16px] shrink-0 mt-0.5">check_circle</span><span>30-Day Post-Launch Support (minor bug fixes and guidance)</span></li>
+            </ul>
+          </div>
+          <button type="button" onclick="attachPackageToEnquiry('Business Plus (₹12,999)')" class="w-full py-3 rounded-lg bg-surface-container text-on-surface font-label-md font-bold hover:bg-surface-container-high border border-outline-variant/40">Select Business Plus</button>
+        </div>
+      </div>
+
+      <!-- Scope Policy Box -->
+      <div class="p-4 rounded-xl bg-surface-container border border-outline-variant/50 flex flex-col gap-2 mt-2">
+        <div class="flex items-center gap-2 text-primary font-label-md font-bold">
+          <span class="material-symbols-outlined text-[18px] text-secondary">info</span>
+          <span>महत्त्वाचे नियम व अटी (Scope, Hosting &amp; Renewal Terms)</span>
+        </div>
+        <p class="text-xs text-on-surface-variant leading-relaxed">
+          Every project is a fixed-scope, one-time build. Domain registration and cloud hosting fees are separate third-party charges; renewals are billed directly at actual provider prices with 100% client account ownership. Revision limits: Starter (1 round), Professional (2 rounds), Business Plus (3 rounds). 30-day post-launch support covers minor bug fixes and guidance, not redesigns or new features.
+        </p>
+      </div>
+    </div>
+
+    <!-- SCREEN 4: ENQUIRY -->
+    <div id="screen-enquiry" class="screen-content flex-col px-4 py-6 gap-6 max-w-2xl mx-auto">
+      <div class="flex flex-col gap-1.5">
+        <span class="font-label-md text-secondary font-bold uppercase tracking-wider">संपर्क व मोफत सल्ला</span>
+        <h2 class="font-headline-sm text-on-surface font-bold text-xl md:text-2xl">Request a Free Demo or Quote for Your Business</h2>
+        <p class="font-body-sm text-on-surface-variant text-xs md:text-sm">Fill in your business details. We prepare a pre-filled WhatsApp message. Zero obligation.</p>
+      </div>
+
+      <a class="w-full h-12 rounded-lg bg-primary text-on-primary font-label-lg font-bold flex items-center justify-center gap-2 shadow-md hover:bg-primary-fixed" href="https://wa.me/919322493776?text=Hello%20AjaraDigital,%20I%20want%20a%20website%20for%20my%20business%20in%20Ajara" target="_blank" rel="noopener noreferrer">
+        <span class="material-symbols-outlined text-[20px]">chat</span>
+        <span>Chat Directly on WhatsApp (+91 93224 93776)</span>
+      </a>
+
+      <!-- Attached Selection Banner -->
+      <div id="attached-context-box" class="hidden p-3.5 rounded-xl bg-surface-container border border-primary-container/30 flex flex-col gap-2">
+        <span class="font-label-md text-primary font-semibold text-xs">Attached Selections:</span>
+        <div class="flex flex-wrap gap-2" id="attached-badges"></div>
+      </div>
+
+      <!-- Error box -->
+      <div id="enquiry-error-box" class="hidden p-3 rounded-lg bg-error-container/20 border border-error/40 text-error text-xs flex items-center gap-2">
+        <span class="material-symbols-outlined text-[18px]">error</span>
+        <span id="enquiry-error-msg">कृपया सर्व आवश्यक माहिती अचूक भरा.</span>
+      </div>
+
+      <form id="enquiry-form" onsubmit="submitEnquiry(event)" class="flex flex-col gap-4">
+        <div class="flex flex-col gap-1">
+          <label class="font-label-md text-on-surface font-semibold text-xs" for="form-shop">Business Name (तुमच्या दुकानाचे / व्यवसायाचे नाव) *</label>
+          <input class="w-full h-12 px-3.5 rounded-lg bg-surface-container-low text-on-surface font-body-md border border-surface-container text-sm" id="form-shop" required placeholder="उदा. हॉटेल अजिंठा / माऊली वस्त्रनिकेतन" type="text"/>
+        </div>
+        <div class="flex flex-col gap-1">
+          <label class="font-label-md text-on-surface font-semibold text-xs" for="form-owner">Owner / Contact Name (मालकाचे नाव) *</label>
+          <input class="w-full h-12 px-3.5 rounded-lg bg-surface-container-low text-on-surface font-body-md border border-surface-container text-sm" id="form-owner" required placeholder="उदा. सचिन पाटील" type="text"/>
+        </div>
+        <div class="flex flex-col gap-1">
+          <label class="font-label-md text-on-surface font-semibold text-xs" for="form-phone">WhatsApp Mobile Number (१० अंकी मोबाईल नंबर) *</label>
+          <div class="relative flex items-center">
+            <span class="absolute left-3 font-label-md text-secondary font-medium text-sm">+91</span>
+            <input class="w-full h-12 pl-12 pr-3.5 rounded-lg bg-surface-container-low text-on-surface font-body-md border border-surface-container text-sm" id="form-phone" required pattern="[0-9]{10}" maxlength="10" placeholder="98765 43210" type="tel"/>
+          </div>
+        </div>
+        <div class="flex flex-col gap-1">
+          <label class="font-label-md text-on-surface font-semibold text-xs" for="form-category">Business Category (व्यवसायाचा प्रकार)</label>
+          <select class="w-full h-12 px-3.5 rounded-lg bg-surface-container-low text-on-surface font-body-md border border-surface-container text-sm" id="form-category">
+            <option value="hotel">हॉटेल / खानावळ / बेकरी (Dining &amp; Food)</option>
+            <option value="clothing">कापड / साडी / गारमेंट्स (Clothing &amp; Fashion)</option>
+            <option value="homestay">रिसॉर्ट / ॲग्रो होमस्टे (Homestay &amp; Tourism)</option>
+            <option value="salon">सलून / ब्युटी पार्लर (Salon &amp; Wellness)</option>
+            <option value="clinic">दवाखाना / लॅब / मेडिकल (Doctor &amp; Clinic)</option>
+            <option value="retail">किराणा / जनरल स्टोअर / हार्डवेअर (Retail)</option>
+            <option value="academy">क्लासेस / शाळा / कोचिंग (Academy)</option>
+            <option value="other">इतर स्थानिक व्यवसाय (Other Local Business)</option>
+          </select>
+        </div>
+        <div class="flex flex-col gap-1">
+          <label class="font-label-md text-on-surface font-semibold text-xs" for="form-notes">Additional Notes / Requirements (ऐच्छिक)</label>
+          <textarea class="w-full h-20 px-3.5 py-2 rounded-lg bg-surface-container-low text-on-surface font-body-md border border-surface-container text-sm resize-none" id="form-notes" placeholder="उदा. QR मेनू हवा आहे, ५ पानांची वेबसाईट हवी आहे..."></textarea>
+        </div>
+        <button type="submit" class="w-full h-12 rounded-lg bg-primary text-on-primary font-label-lg font-bold flex items-center justify-center gap-2 shadow-md hover:bg-primary-fixed">
+          <span class="material-symbols-outlined text-[20px]">send</span>
+          <span>Send WhatsApp Inquiry</span>
+        </button>
+
+        <div id="enquiry-fallback-card" class="hidden p-4 rounded-xl bg-surface-container border border-primary-container/40 text-on-surface flex flex-col gap-2.5 shadow-sm">
+          <div class="flex items-center gap-2 text-primary font-bold text-sm">
+            <span class="material-symbols-outlined text-[20px] text-primary-fixed">mark_chat_read</span>
+            <span>Inquiry Prepared for WhatsApp!</span>
+          </div>
+          <p class="text-xs text-on-surface-variant leading-relaxed">
+            Your inquiry is ready. <strong>Important:</strong> You must press <strong>Send</strong> inside WhatsApp to deliver your message. No details are stored on a server.
+          </p>
+          <a id="enquiry-fallback-btn" href="#" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-lg bg-primary-container text-on-primary font-bold text-center text-xs flex items-center justify-center gap-1.5 shadow-sm">
+            <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+            <span>Open WhatsApp Now (Fallback Link)</span>
+          </a>
+        </div>
+      </form>
+    </div>
+
+    <!-- SCREEN 5: MORE -->
+    <div id="screen-more" class="screen-content flex-col px-4 py-6 gap-8">
+      <!-- Founder -->
+      <section class="flex flex-col gap-3">
+        <span class="font-label-md text-tertiary-container uppercase tracking-wider font-bold">आमच्याबद्दल व ओळख</span>
+        <h2 class="font-headline-sm text-on-surface font-bold text-xl">Independent Local Craftsmanship</h2>
+        <div class="p-5 rounded-2xl bg-surface-container-lowest flex flex-col gap-4 shadow-sm border border-surface-container">
+          <div class="flex items-center gap-3.5">
+            <img alt="Independent web designer serving Ajara" class="w-16 h-16 rounded-full object-cover shrink-0 shadow-sm border border-primary-container/30" src="./muzammil.jpeg"/>
+            <div class="flex flex-col">
+              <h3 class="font-title-md text-on-surface font-bold leading-tight">स्थानिक स्वतंत्र डिझायनर</h3>
+              <p class="font-label-md text-secondary">Independent Local Web Designer • AjaraDigital</p>
+              <span class="text-[0.75rem] font-medium text-primary mt-0.5">Direct 1-on-1 Communication • प्रत्यक्ष संवाद</span>
+            </div>
+          </div>
+          <p class="font-body-sm text-on-surface-variant leading-relaxed text-xs md:text-sm">
+            "I am an independent web designer based in Ajara (PIN 416505). I help local merchants, clinics, and businesses establish clean, mobile-first websites without agency overheads or complicated technical jargon. In-person discussions can be arranged by prior appointment within Ajara."
+          </p>
+          <div class="p-2.5 rounded-lg bg-surface-container-low flex items-center justify-between text-xs text-on-surface-variant border border-surface-container">
+            <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-secondary">location_on</span><span>Based in Ajara, Maharashtra</span></span>
+            <span class="font-semibold text-secondary">PIN 416505</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3 Steps -->
+      <section class="flex flex-col gap-3">
+        <span class="font-label-md text-tertiary-container uppercase tracking-wider font-bold">सुलभ ३ पायऱ्या</span>
+        <h2 class="font-headline-sm text-on-surface font-bold text-xl">How It Works (कसे काम करते?)</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+          <div class="p-4 rounded-xl bg-surface-container-lowest shadow-sm flex items-start gap-3 border border-surface-container">
+            <div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-sm shrink-0">१</div>
+            <div><h3 class="font-title-md text-on-surface font-bold text-sm">1. Choose Scope &amp; Send Content</h3><p class="text-xs text-on-surface-variant mt-1">Select package, send photos &amp; rate card, pay agreed initial advance deposit.</p></div>
+          </div>
+          <div class="p-4 rounded-xl bg-surface-container-lowest shadow-sm flex items-start gap-3 border border-surface-container">
+            <div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-sm shrink-0">२</div>
+            <div><h3 class="font-title-md text-on-surface font-bold text-sm">2. Design &amp; Structured Review</h3><p class="text-xs text-on-surface-variant mt-1">Built within 7–14 or 14–21 working days. Includes 1 round (Starter), 2 (Pro), or 3 (Business Plus).</p></div>
+          </div>
+          <div class="p-4 rounded-xl bg-surface-container-lowest shadow-sm flex items-start gap-3 border border-surface-container">
+            <div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-sm shrink-0">३</div>
+            <div><h3 class="font-title-md text-on-surface font-bold text-sm">3. Final Handover &amp; Go Live</h3><p class="text-xs text-on-surface-variant mt-1">Approve staging, clear milestone payment, receive full credentials with 30-day support.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="flex flex-col gap-3">
+        <span class="font-label-md text-tertiary-container uppercase tracking-wider font-bold">शंका व उत्तरे</span>
+        <h2 class="font-headline-sm text-on-surface font-bold text-xl">Frequently Asked Questions</h2>
+        <div class="flex flex-col gap-2.5">
+          <details class="group p-3.5 rounded-xl bg-surface-container-lowest shadow-sm open:bg-surface-container-low transition-colors border border-surface-container">
+            <summary class="font-title-md text-on-surface font-bold text-[0.95rem] flex items-center justify-between cursor-pointer list-none">
+              <span>Who owns the website and domain?</span>
+              <span class="material-symbols-outlined group-open:rotate-180 transition-transform text-secondary text-[20px]">expand_more</span>
+            </summary>
+            <p class="font-body-sm text-on-surface-variant pt-2 text-xs leading-relaxed">You do 100%. All domains, hosting accounts, and website assets are registered in your name or handed over completely upon final payment. Zero proprietary lock-in.</p>
+          </details>
+          <details class="group p-3.5 rounded-xl bg-surface-container-lowest shadow-sm open:bg-surface-container-low transition-colors border border-surface-container">
+            <summary class="font-title-md text-on-surface font-bold text-[0.95rem] flex items-center justify-between cursor-pointer list-none">
+              <span>What is included in the 30-day post-launch support?</span>
+              <span class="material-symbols-outlined group-open:rotate-180 transition-transform text-secondary text-[20px]">expand_more</span>
+            </summary>
+            <p class="font-body-sm text-on-surface-variant pt-2 text-xs leading-relaxed">Minor bug fixes, typo corrections, and initial guidance on using your site. It does not include major redesigns or new feature developments.</p>
+          </details>
+          <details class="group p-3.5 rounded-xl bg-surface-container-lowest shadow-sm open:bg-surface-container-low transition-colors border border-surface-container">
+            <summary class="font-title-md text-on-surface font-bold text-[0.95rem] flex items-center justify-between cursor-pointer list-none">
+              <span>What is included in the revision rounds?</span>
+              <span class="material-symbols-outlined group-open:rotate-180 transition-transform text-secondary text-[20px]">expand_more</span>
+            </summary>
+            <p class="font-body-sm text-on-surface-variant pt-2 text-xs leading-relaxed">Starter includes 1 revision round, Professional includes 2, and Business Plus includes 3. Revisions allow you to adjust text, images, and layout before final launch.</p>
+          </details>
+          <details class="group p-3.5 rounded-xl bg-surface-container-lowest shadow-sm open:bg-surface-container-low transition-colors border border-surface-container">
+            <summary class="font-title-md text-on-surface font-bold text-[0.95rem] flex items-center justify-between cursor-pointer list-none">
+              <span>Do you guarantee #1 Google rankings or sales?</span>
+              <span class="material-symbols-outlined group-open:rotate-180 transition-transform text-secondary text-[20px]">expand_more</span>
+            </summary>
+            <p class="font-body-sm text-on-surface-variant pt-2 text-xs leading-relaxed">No ethical web designer can guarantee Google rankings, profile approval, leads, or sales volumes. We provide Google Business Profile assistance, clean on-page local SEO, and fast performance to maximize local discoverability.</p>
+          </details>
+        </div>
+      </section>
+
+      <!-- Service Area -->
+      <div class="p-3.5 rounded-xl bg-surface-container-low flex items-start gap-2.5 border border-surface-container">
+        <span class="material-symbols-outlined text-secondary text-[20px] shrink-0">map</span>
+        <p class="font-body-sm text-secondary text-xs leading-relaxed">
+          <strong>स्थानिक सेवा क्षेत्र:</strong> Proudly serving businesses across Ajara, Uttur, Gadhinglaj, Nesari, and Chandgad belts.
+        </p>
+      </div>
+
+      <!-- Footer -->
+      <footer class="w-full pt-4 pb-6 bg-surface-container-highest/20 flex flex-col items-center text-center gap-2 border-t border-surface-container">
+        <div class="flex items-center gap-2">
+          <div class="w-5 h-5 rounded bg-primary text-on-primary font-bold text-[10px] flex items-center justify-center">A</div>
+          <span class="font-label-lg text-on-surface font-extrabold text-sm">AjaraDigital</span>
+        </div>
+        <p class="text-[0.72rem] text-secondary">आजरा - ४१६५०५, जिल्हा कोल्हापूर, महाराष्ट्र.</p>
+        <p class="text-[0.65rem] text-outline">© 2025 AjaraDigital. Crafted with regional pride.</p>
+      </footer>
+    </div>
+
+  </main>
+
+  <!-- MOBILE BOTTOM NAVIGATION BAR -->
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-surface-container-lowest border-t border-surface-container px-2 py-1.5 flex items-center justify-around shadow-2xl pb-safe" aria-label="Mobile bottom navigation">
+    <button type="button" onclick="switchScreen('home')" class="mobile-nav-home flex flex-col items-center justify-center py-1 px-2.5 rounded-lg text-primary-container">
+      <span class="material-symbols-outlined text-[22px]">home</span>
+      <span class="text-[10px] font-semibold mt-0.5">Home</span>
+    </button>
+    <button type="button" onclick="switchScreen('demos')" class="mobile-nav-demos flex flex-col items-center justify-center py-1 px-2.5 rounded-lg text-outline">
+      <span class="material-symbols-outlined text-[22px]">visibility</span>
+      <span class="text-[10px] font-semibold mt-0.5">Demos</span>
+    </button>
+    <button type="button" onclick="switchScreen('pricing')" class="mobile-nav-pricing flex flex-col items-center justify-center py-1 px-2.5 rounded-lg text-outline">
+      <span class="material-symbols-outlined text-[22px]">sell</span>
+      <span class="text-[10px] font-semibold mt-0.5">Pricing</span>
+    </button>
+    <button type="button" onclick="switchScreen('enquiry')" class="mobile-nav-enquiry flex flex-col items-center justify-center py-1 px-2.5 rounded-lg text-outline relative">
+      <span class="material-symbols-outlined text-[22px]">chat</span>
+      <span class="text-[10px] font-semibold mt-0.5">Enquiry</span>
+    </button>
+    <button type="button" onclick="switchScreen('more')" class="mobile-nav-more flex flex-col items-center justify-center py-1 px-2.5 rounded-lg text-outline">
+      <span class="material-symbols-outlined text-[22px]">info</span>
+      <span class="text-[10px] font-semibold mt-0.5">More</span>
+    </button>
+  </nav>
+
+  <!-- SCRIPT -->
+  <script>
+    let currentSelectedDemo = null;
+    let currentSelectedPackage = null;
+
+    function switchScreen(screenName) {
+      document.querySelectorAll('.screen-content').forEach(s => s.classList.remove('active'));
+      const activeDiv = document.getElementById('screen-' + screenName);
+      if (activeDiv) activeDiv.classList.add('active');
+
+      // Update Desktop Nav styles
+      ['home', 'demos', 'pricing', 'enquiry', 'more'].forEach(name => {
+        const dBtn = document.querySelector('.nav-btn-' + name);
+        if (dBtn) {
+          if (name === screenName) {
+            dBtn.className = 'nav-btn-' + name + ' px-3.5 py-1.5 rounded-full font-label-md font-semibold transition-all bg-primary text-on-primary shadow-sm';
+          } else {
+            dBtn.className = 'nav-btn-' + name + ' px-3.5 py-1.5 rounded-full font-label-md font-semibold transition-all text-on-surface-variant hover:text-on-surface';
+          }
+        }
+        const mBtn = document.querySelector('.mobile-nav-' + name);
+        if (mBtn) {
+          if (name === screenName) {
+            mBtn.className = 'mobile-nav-' + name + ' flex flex-col items-center justify-center py-1 px-2.5 rounded-lg text-primary-container';
+          } else {
+            mBtn.className = 'mobile-nav-' + name + ' flex flex-col items-center justify-center py-1 px-2.5 rounded-lg text-outline hover:text-on-surface';
+          }
+        }
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function attachDemoToEnquiry(demoTitle, categoryKey) {
+      currentSelectedDemo = demoTitle;
+      const catSelect = document.getElementById('form-category');
+      if (catSelect && categoryKey) catSelect.value = categoryKey;
+      renderAttachedContext();
+      switchScreen('enquiry');
+    }
+
+    function attachPackageToEnquiry(packageName) {
+      currentSelectedPackage = packageName;
+      renderAttachedContext();
+      switchScreen('enquiry');
+    }
+
+    function renderAttachedContext() {
+      const box = document.getElementById('attached-context-box');
+      const badgesContainer = document.getElementById('attached-badges');
+      if (!currentSelectedPackage && !currentSelectedDemo) {
+        box.classList.add('hidden');
+        badgesContainer.innerHTML = '';
+        return;
+      }
+      box.classList.remove('hidden');
+      badgesContainer.innerHTML = '';
+
+      if (currentSelectedPackage) {
+        const span = document.createElement('span');
+        span.className = 'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-container-low text-secondary text-xs border border-primary-container/30';
+        span.innerHTML = `Package: <strong>${currentSelectedPackage}</strong> <button type="button" onclick="clearPackage()" class="ml-1 text-error">&times;</button>`;
+        badgesContainer.appendChild(span);
+      }
+      if (currentSelectedDemo) {
+        const span = document.createElement('span');
+        span.className = 'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-container-low text-secondary text-xs border border-primary-container/30';
+        span.innerHTML = `Demo: <strong>${currentSelectedDemo}</strong> <button type="button" onclick="clearDemo()" class="ml-1 text-error">&times;</button>`;
+        badgesContainer.appendChild(span);
+      }
+    }
+
+    function clearPackage() {
+      currentSelectedPackage = null;
+      renderAttachedContext();
+    }
+
+    function clearDemo() {
+      currentSelectedDemo = null;
+      renderAttachedContext();
+    }
+
+    function filterDemoCards(category, btn) {
+      document.querySelectorAll('.demo-pill').forEach(p => {
+        p.className = 'demo-pill px-3.5 py-1.5 rounded-full font-label-md bg-surface-container text-on-surface';
+      });
+      btn.className = 'demo-pill px-3.5 py-1.5 rounded-full font-label-md bg-primary text-on-primary font-bold shadow-sm';
+
+      document.querySelectorAll('.demo-item').forEach(item => {
+        if (category === 'all' || item.classList.contains(category)) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    const CATEGORY_MAP = {
+      hotel: 'हॉटेल / खानावळ / बेकरी (Dining & Food)',
+      clothing: 'कापड / साडी / गारमेंट्स (Clothing & Fashion)',
+      homestay: 'रिसॉर्ट / ॲग्रो होमस्टे (Homestay & Tourism)',
+      salon: 'सलून / ब्युटी पार्लर (Salon & Wellness)',
+      clinic: 'दवाखाना / लॅब / मेडिकल (Doctor & Clinic)',
+      retail: 'किराणा / जनरल स्टोअर / हार्डवेअर (Retail)',
+      academy: 'क्लासेस / शाळा / कोचिंग (Academy)',
+      other: 'इतर स्थानिक व्यवसाय (Other Local Business)'
+    };
+
+    function submitEnquiry(e) {
+      e.preventDefault();
+      const errorBox = document.getElementById('enquiry-error-box');
+      const errorMsg = document.getElementById('enquiry-error-msg');
+      const fallbackCard = document.getElementById('enquiry-fallback-card');
+      const fallbackBtn = document.getElementById('enquiry-fallback-btn');
+
+      errorBox.classList.add('hidden');
+
+      const shop = document.getElementById('form-shop').value.trim();
+      const owner = document.getElementById('form-owner').value.trim();
+      const rawPhone = document.getElementById('form-phone').value;
+      const phone = rawPhone.replace(/[^0-9]/g, '');
+      const catVal = document.getElementById('form-category').value;
+      const notes = document.getElementById('form-notes').value.trim();
+      const catLabel = CATEGORY_MAP[catVal] || catVal;
+
+      if (!shop) {
+        errorMsg.textContent = 'कृपया व्यवसायाचे नाव प्रविष्ट करा (Please enter business name).';
+        errorBox.classList.remove('hidden');
+        return;
+      }
+      if (!owner) {
+        errorMsg.textContent = 'कृपया मालकाचे नाव प्रविष्ट करा (Please enter owner name).';
+        errorBox.classList.remove('hidden');
+        return;
+      }
+      if (phone.length !== 10) {
+        errorMsg.textContent = 'कृपया अचूक १० अंकी WhatsApp मोबाईल नंबर प्रविष्ट करा (Please enter a valid 10-digit mobile number).';
+        errorBox.classList.remove('hidden');
+        return;
+      }
+
+      let msg = `नमस्ते AjaraDigital, मला माझ्या व्यवसायासाठी वेबसाईट संदर्भात माहिती हवी आहे.\n\n• व्यवसाय: ${shop}\n• नाव: ${owner}\n• मोबाईल: +91 ${phone}\n• प्रकार: ${catLabel}`;
+      if (currentSelectedPackage) msg += `\n• निवडलेले पॅकेज: ${currentSelectedPackage}`;
+      if (currentSelectedDemo) msg += `\n• नमुना संदर्भ (Demo): ${currentSelectedDemo}`;
+      if (notes) msg += `\n• अधिक माहिती: ${notes}`;
+
+      const whatsappUrl = `https://wa.me/919322493776?text=${encodeURIComponent(msg)}`;
+      fallbackBtn.href = whatsappUrl;
+      fallbackCard.classList.remove('hidden');
+
+      try {
+        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      } catch (err) {
+        // Fallback visible
+      }
+    }
+  </script>
+</body>
+</html>

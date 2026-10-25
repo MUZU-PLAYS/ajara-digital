@@ -1,0 +1,6 @@
+{
+  "name": "AjaraDigital - Local Web Design",
+  "description": "Affordable, fixed-scope, mobile-first websites and Google Business Profile assistance for local shops and businesses in Ajara, Maharashtra.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #001711;
+    --surface: #001711;
+    --surface-container-lowest: #00110c;
+    --surface-container-low: #002019;
+    --surface-container: #00251c;
+    --surface-container-high: #003126;
+    --surface-container-highest: #003d30;
+    --surface-variant: #003d30;
+    --primary: #f4fff6;
+    --on-primary: #003825;
+    --primary-container: #00feb4;
+    --on-primary-container: #00714e;
+    --primary-fixed: #45ffba;
+    --primary-fixed-dim: #00e29f;
+    --secondary: #46edc5;
+    --on-secondary: #00382c;
+    --secondary-container: #05d0aa;
+    --on-secondary-container: #005443;
+    --tertiary: #f7fdff;
+    --tertiary-container: #9eebff;
+    --on-surface: #b5eedb;
+    --on-surface-variant: #b9cbbf;
+    --outline: #83958a;
+    --outline-variant: #3a4a41;
+  }
+
+  html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #001711;
+    color: #b5eedb;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    overscroll-behavior-y: none;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.font-display-mobile {
+  font-size: 2.25rem;
+  line-height: 2.75rem;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+}
+
+.font-headline-lg-mobile {
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.font-headline-md {
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+}
+
+.font-headline-sm {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+.font-title-md {
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+}
+
+.font-body-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 400;
+}
+
+.font-body-md {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+}
+
+.font-body-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+}
+
+.font-label-lg {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  letter-spacing: 0.01em;
+  font-weight: 600;
+}
+
+.font-label-md {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+}
+
+.font-label-marathi {
+  font-size: 0.9375rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
